@@ -7,8 +7,14 @@ from .models import Post
 
 def create_post_view(request:HttpRequest):
 
+    print(request.POST)
+
     if request.method == "POST":
-        new_post = Post(title = request.POST["title"], content=request.POST["content"], is_published=request.POST["is_published"], published_at=request.POST["published_at"])
+        new_post = Post(title = request.POST["title"], content=request.POST["content"],  published_at=request.POST["published_at"])
         new_post.save()
+
+    #if request.method == "POST":
+        #new_post = Post(title = request.POST["title"], content=request.POST["content"], is_published=request.POST["is_published"], published_at=request.POST["published_at"])
+        #new_post.save()
 
     return render(request, "posts/create.html")

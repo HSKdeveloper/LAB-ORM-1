@@ -7,4 +7,31 @@
     <h2>
         Hello world
     </h2>
+
+
+    <h2>
+        Our Posts
+    </h2>
+    <div class="row mt-5 row-cols-1 row-cols-md-3 g-4">
+
+        {% for p in posts %}
+            <div class="col">
+                <div class="d-flex flex-column justify-content-start align-items-start h-100 p-4 shadow">
+                    <h3>
+                        {{ p.title }}
+                    </h3>
+                    <p>
+                        {{ p.content }}
+                    </p>
+                    <h5>
+                        Published at:  {{ p.published_at }}
+                    </h5>
+                    
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+
+
 {% endblock %}
