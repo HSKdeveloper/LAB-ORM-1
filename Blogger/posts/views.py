@@ -10,7 +10,9 @@ def create_post_view(request:HttpRequest):
     print(request.POST)
 
     if request.method == "POST":
-        new_post = Post(title = request.POST["title"], content=request.POST["content"],  published_at=request.POST["published_at"])
+        
+        is_published = request.POST.get("is_published") == "True"
+        new_post = Post(title = request.POST["title"], content=request.POST["content"],   is_published= is_published,published_at=request.POST["published_at"])
         new_post.save()
 
     #if request.method == "POST":

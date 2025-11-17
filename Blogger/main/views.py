@@ -7,5 +7,5 @@ def home_view(request:HttpResponse):
 
     #get all posts
     posts = Post.objects.all()
-
+    
     return render(request, 'main/home.html', {"posts" : posts})
